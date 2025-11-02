@@ -1,0 +1,29 @@
+# Source files (only dist should be published)
+src/
+tsconfig.json
+tsup.config.ts
+
+# Development files
+.gitignore
+.eslintrc*
+.prettierrc*
+*.test.ts
+*.spec.ts
+__tests__/
+
+# Documentation (README and LICENSE are included)
+docs/
+examples/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Editor
+.vscode/
+.idea/
+
+# Misc
+*.log
+.DS_Store

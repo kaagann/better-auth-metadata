@@ -1,0 +1,59 @@
+{
+  "name": "better-auth-metadata",
+  "version": "1.0.0",
+  "description": "Type-safe metadata management plugin for Better Auth",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.mjs",
+      "require": "./dist/client.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "better-auth",
+    "auth",
+    "authentication",
+    "metadata",
+    "plugin",
+    "typescript",
+    "type-safe"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/better-auth-metadata.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/better-auth-metadata/issues"
+  },
+  "homepage": "https://github.com/yourusername/better-auth-metadata#readme",
+  "peerDependencies": {
+    "better-auth": ">=1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "better-auth": "^1.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}
