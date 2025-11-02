@@ -37,16 +37,16 @@
     "typescript",
     "type-safe"
   ],
-  "author": "Your Name",
+  "author": "Kagan",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/better-auth-metadata.git"
+    "url": "https://github.com/kaagann/better-auth-metadata.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/better-auth-metadata/issues"
+    "url": "https://github.com/kaagann/better-auth-metadata/issues"
   },
-  "homepage": "https://github.com/yourusername/better-auth-metadata#readme",
+  "homepage": "https://github.com/kaagann/better-auth-metadata#readme",
   "peerDependencies": {
     "better-auth": ">=1.0.0"
   },

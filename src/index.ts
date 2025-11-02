@@ -40,7 +40,7 @@ export interface MetadataPluginOptions<TMetadata extends Record<string, any> = R
  * ```
  */
 export const metadata = <TMetadata extends Record<string, any> = Record<string, any>>(
-  options?: MetadataPluginOptions<TMetadata>
+  _options?: MetadataPluginOptions<TMetadata>
 ) => {
   return {
     id: "metadata",
@@ -70,6 +70,12 @@ export const metadata = <TMetadata extends Record<string, any> = Record<string, 
             });
           }
 
+          if (!ctx.request) {
+            throw new APIError("BAD_REQUEST", {
+              message: "Request body is required",
+            });
+          }
+
           const body = await ctx.request.json();
           const { metadata: newMetadata, merge = true } = body as {
             metadata: Partial<TMetadata>;
@@ -84,7 +90,7 @@ export const metadata = <TMetadata extends Record<string, any> = Record<string, 
                 value: session.user.id,
               },
             ],
-          });
+          }) as { metadata?: string | null } | null;
 
           let updatedMetadata: TMetadata;
 
@@ -106,7 +112,7 @@ export const metadata = <TMetadata extends Record<string, any> = Record<string, 
                 value: session.user.id,
               },
             ],
-            data: {
+            update: {
               metadata: JSON.stringify(updatedMetadata),
             },
           });
@@ -141,7 +147,7 @@ export const metadata = <TMetadata extends Record<string, any> = Record<string, 
                 value: session.user.id,
               },
             ],
-          });
+          }) as { metadata?: string | null } | null;
 
           const metadata = user?.metadata 
             ? JSON.parse(user.metadata as string) 
@@ -168,6 +174,12 @@ export const metadata = <TMetadata extends Record<string, any> = Record<string, 
             });
           }
 
+          if (!ctx.request) {
+            throw new APIError("BAD_REQUEST", {
+              message: "Request body is required",
+            });
+          }
+
           const body = await ctx.request.json();
           const { path, value } = body as {
             path: string;
@@ -182,7 +194,7 @@ export const metadata = <TMetadata extends Record<string, any> = Record<string, 
                 value: session.user.id,
               },
             ],
-          });
+          }) as { metadata?: string | null } | null;
 
           let metadata = user?.metadata 
             ? JSON.parse(user.metadata as string) 
@@ -208,7 +220,7 @@ export const metadata = <TMetadata extends Record<string, any> = Record<string, 
                 value: session.user.id,
               },
             ],
-            data: {
+            update: {
               metadata: JSON.stringify(metadata),
             },
           });
@@ -243,7 +255,7 @@ export const metadata = <TMetadata extends Record<string, any> = Record<string, 
                 value: session.user.id,
               },
             ],
-            data: {
+            update: {
               metadata: null,
             },
           });
